@@ -1,0 +1,17 @@
+{
+  "name": "zahngefluester",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:marketing": "npm run dev --workspace=@zg/marketing",
+    "build:marketing": "npm run build --workspace=@zg/marketing",
+    "lint": "npm run lint --workspaces --if-present",
+    "docs:urls": "node scripts/url-mapping.mjs"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

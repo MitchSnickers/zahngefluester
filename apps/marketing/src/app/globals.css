@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+/* Design-Tokens. PLATZHALTER-Palette - die echten Markenfarben kommen von
+   Jasmin/Lina bzw. aus der bestehenden Seite. Bewusst als Tokens, damit ein
+   Farbwechsel eine Datei ist und keine Suche durch 15 Komponenten. */
+@theme {
+  --color-ink: oklch(0.24 0.02 260);
+  --color-ink-muted: oklch(0.48 0.015 260);
+  --color-surface: oklch(0.99 0.004 260);
+  --color-surface-alt: oklch(0.96 0.008 250);
+  --color-line: oklch(0.9 0.008 260);
+  --color-brand: oklch(0.55 0.11 200);
+  --color-brand-dark: oklch(0.44 0.1 200);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sichtbarer Fokus. Nicht wegoptimieren. */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}

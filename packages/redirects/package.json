@@ -1,0 +1,9 @@
+{
+  "name": "@zg/redirects",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": { ".": { "types": "./index.d.ts", "default": "./index.mjs" } }
+}
