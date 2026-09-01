@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
+import { Portrait } from "@/components/Portrait";
 import { referentinnen } from "@/content/referentinnen";
 
 export const metadata: Metadata = { title: "Über uns" };
@@ -57,12 +58,15 @@ export default function UeberUns() {
               <Link
                 key={g.slug}
                 href={`/referentinnen/${g.slug}/`}
-                className="rounded-lg border border-line bg-white p-6 transition-colors hover:border-brand"
+                className="overflow-hidden rounded-lg border border-line bg-white transition-colors hover:border-brand"
               >
+                <Portrait src={g.photo} name={g.name} className="rounded-none" sizes="(min-width: 640px) 20rem, 100vw" />
+                <div className="p-6">
                 <p className="font-medium">{g.name}</p>
                 <p className="mt-1 text-sm text-ink-muted">{g.role}</p>
                 <p className="mt-3 line-clamp-4 text-sm leading-relaxed text-ink-muted">{g.bio}</p>
                 <p className="mt-3 text-sm text-brand">Mehr über {g.shortName ?? g.name}</p>
+                </div>
               </Link>
             ))}
           </div>

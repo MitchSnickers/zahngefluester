@@ -41,6 +41,10 @@ export type Referentin = {
   /** Mitgliedschaften, Auszeichnungen, Veroeffentlichungen. Wortgleich von der
    *  Live-Seite /about-us/ uebernommen. */
   credentials?: { label: string; text: string }[];
+  /** Portraet unter public/. Wird von scripts/bilder-holen.mjs geladen.
+   *  Fehlt der Eintrag, zeigt die Seite eine neutrale Flaeche statt eines
+   *  kaputten Bildes. */
+  photo?: string;
   /** Anmerkung fuer uns, nicht fuer die Website. */
   hinweis?: string;
 };
@@ -48,6 +52,7 @@ export type Referentin = {
 export const referentinnen: Referentin[] = [
   {
     slug: "jasmin-matthes",
+    photo: "/referentinnen/jasmin-matthes.webp",
     name: "Jasmin Matthes",
     shortName: "Jasmin",
     role: "Dentalhygienikerin",
@@ -76,6 +81,7 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "dr-lina-dinse",
+    photo: "/referentinnen/dr-lina-dinse.webp",
     name: "Dr. Lina Dinse",
     shortName: "Lina",
     role: "Zahnärztin",
@@ -102,6 +108,7 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "professor-dr-georg-gassmann",
+    photo: "/referentinnen/professor-dr-georg-gassmann.webp",
     name: "Prof. Dr. Georg Gassmann",
     role: "Zahnarzt, Studiengangsleitung Dentalhygiene an der EUFH und Parodontologe",
     bio:
@@ -120,18 +127,21 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "pd-dr-dr-matthias-troeltzsch",
+    photo: "/referentinnen/pd-dr-dr-matthias-troeltzsch.webp",
     name: "PD Dr. Dr. Matthias Tröltzsch",
     role: "Facharzt für Mund-, Kiefer- und Gesichtschirurgie",
     bio: "PLATZHALTER",
   },
   {
     slug: "dr-marion-kauderer",
+    photo: "/referentinnen/dr-marion-kauderer.webp",
     name: "Dr. Marion Kauderer",
     role: "Diplompsychologin, Gesundheitscoach",
     bio: "PLATZHALTER",
   },
   {
     slug: "katrin-kersting",
+    photo: "/referentinnen/katrin-kersting.webp",
     name: "Katrin Kersting",
     role: "Referentin und Ökotrophologin",
     bio:
@@ -145,6 +155,7 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "tatjana-bejta",
+    photo: "/referentinnen/tatjana-bejta.webp",
     name: "Tatjana Bejta",
     role: "Dentalhygienikerin, Referentin und Aromatherapeutin",
     bio:
@@ -156,12 +167,14 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "sanella-blatt",
+    photo: "/referentinnen/sanella-blatt.webp",
     name: "Sanella Blatt",
     role: "Dentalhygienikerin, Referentin und Aromafachtherapeutin",
     bio: "PLATZHALTER",
   },
   {
     slug: "thea-wittling",
+    photo: "/referentinnen/thea-wittling.webp",
     name: "Thea Wittling",
     role: "Zahnmedizinische Prophylaxeangestellte, selbstständig in eigenem Dentalkosmetikstudio",
     bio:
@@ -178,6 +191,7 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "sonja-steinert",
+    photo: "/referentinnen/sonja-steinert.webp",
     name: "Sonja Steinert",
     role: "Dentalhygienikerin, Darmtrainerin und Heilpraktikerin",
     bio:
@@ -189,6 +203,7 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "martina-schaale",
+    photo: "/referentinnen/martina-schaale.webp",
     name: "Martina Schaale",
     role: "Dentalhygienikerin, Ernährungsberaterin und Vitalstoffexpertin",
     bio:
@@ -200,12 +215,14 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "katja-piecuch",
+    photo: "/referentinnen/katja-piecuch.webp",
     name: "Katja Piecuch",
     role: "Dentalhygienikerin und Expertin für minimalinvasive Parodontaltherapie",
     bio: "PLATZHALTER",
   },
   {
     slug: "nicole-graw",
+    photo: "/referentinnen/nicole-graw.webp",
     name: "Nicole Graw",
     role: "Dentalhygienikerin und Spezialistin für Alterszahnmedizin",
     bio:
@@ -219,12 +236,14 @@ export const referentinnen: Referentin[] = [
   },
   {
     slug: "ann-kathrin-giglberger",
+    photo: "/referentinnen/ann-kathrin-giglberger.webp",
     name: "Ann-Kathrin Giglberger",
     role: "Dentalhygienikerin und Spezialistin für Periimplantitis",
     bio: "PLATZHALTER",
   },
   {
     slug: "claudia-bastian",
+    photo: "/referentinnen/claudia-bastian.webp",
     name: "Claudia Bastian",
     role: "Dentalhygienikerin und Expertin für antientzündliche Ernährung",
     bio: "PLATZHALTER",

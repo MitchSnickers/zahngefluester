@@ -11,7 +11,9 @@
     "lint": "npm run lint --workspaces --if-present",
     "docs:urls": "node scripts/url-mapping.mjs",
     "launch-check": "node scripts/launch-check.mjs",
-    "check:redirects": "node scripts/check-redirects.mjs"
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "bilder:holen": "node scripts/bilder-holen.mjs",
+    "pruefe:kursdateien": "node scripts/pruefe-kursdateien.mjs"
   },
   "engines": {
     "node": ">=20.11"

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { Placeholder } from "@/components/Placeholder";
+import { Portrait } from "@/components/Portrait";
 import { referentinBySlug, referentinnen } from "@/content/referentinnen";
 
 /** Eigene Seite je Referentin. Nicht Kosmetik: auf der Altseite lagen diese 15
@@ -30,7 +31,11 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
     <>
       <PageHeader kicker={r.role} title={r.name} />
       <Container className="py-14">
-        <div className="max-w-2xl space-y-6">
+        <div className="grid gap-10 lg:grid-cols-[16rem_1fr]">
+          <div className="mx-auto w-56 lg:mx-0 lg:w-full">
+            <Portrait src={r.photo} name={r.name} sizes="16rem" priority />
+          </div>
+          <div className="max-w-2xl space-y-6">
           {/* Sobald in content/referentinnen.ts eine echte Biografie steht, wird sie
               hier ausgegeben und der Platzhalter verschwindet von selbst. Vorher
               stand das bio-Feld ungenutzt in den Daten - wer es gefuellt haette,
@@ -61,9 +66,10 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
             <h2 className="text-lg font-semibold tracking-tight">Module</h2>
             <div className="mt-3"><Placeholder>Welche Module diese Referentin hält – kommt aus dem Datenmodell.</Placeholder></div>
           </section>
-          <Link href="/referentinnen/" className="inline-block text-sm text-brand hover:text-brand-dark">
-            ← Alle Referentinnen
-          </Link>
+            <Link href="/referentinnen/" className="inline-block text-sm text-brand hover:text-brand-dark">
+              ← Alle Referentinnen
+            </Link>
+          </div>
         </div>
       </Container>
     </>
