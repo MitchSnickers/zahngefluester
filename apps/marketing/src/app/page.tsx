@@ -5,6 +5,10 @@ import { Placeholder } from "@/components/Placeholder";
 import { kurse } from "@/content/kurse";
 import { site } from "@/content/site";
 
+/** Die Stimmen liegen bei der Masterclass, nicht doppelt auf der Startseite.
+ *  Eine Quelle, zwei Orte der Ausgabe. */
+const stimmen = kurse.find((k) => k.slug === "masterclass")?.stimmen ?? [];
+
 export default function Startseite() {
   return (
     <>
@@ -42,9 +46,24 @@ export default function Startseite() {
 
       <Container className="pb-16">
         <h2 className="text-2xl font-semibold tracking-tight">Was Teilnehmerinnen sagen</h2>
+        {/* Echte Stimmen aus Notion, nicht erfunden. Was fehlt, ist nicht der
+            Text, sondern die Erlaubnis - siehe Kasten darunter. */}
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Placeholder>Testimonial 1 – echte Stimmen von Jasmin/Lina einholen.</Placeholder>
-          <Placeholder>Testimonial 2 – mit Name, Praxis und Einverständnis.</Placeholder>
+          {stimmen.map((s) => (
+            <figure key={s.person} className="rounded-lg border border-line bg-surface-alt p-6">
+              <blockquote className="text-sm leading-relaxed">„{s.text}“</blockquote>
+              <figcaption className="mt-3 text-xs text-ink-muted">{s.person}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="mt-4">
+          <Placeholder>
+            Diese beiden Stimmen stehen so in eurem Notion, sind also echt. Offen ist,
+            ob Chrissi und Kati der namentlichen Veröffentlichung zugestimmt haben –
+            und ob es weitere gibt, die eine Praxis nennen dürfen. Dazu gehört ein
+            zweiter Punkt: wer Bewertungen zeigt, muss erklären, wie er ihre Echtheit
+            sicherstellt. Die entsprechende Pflichtseite auf .education ist leer.
+          </Placeholder>
         </div>
       </Container>
 

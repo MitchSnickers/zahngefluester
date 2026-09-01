@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { PageHeader } from "@/components/PageHeader";
 import { Placeholder } from "@/components/Placeholder";
 import { Portrait } from "@/components/Portrait";
+import { moduleVonReferentin } from "@/content/modulzuordnung";
 import { referentinBySlug, referentinnen } from "@/content/referentinnen";
 
 /** Eigene Seite je Referentin. Nicht Kosmetik: auf der Altseite lagen diese 15
@@ -26,6 +27,7 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const r = referentinBySlug(slug);
   if (!r) notFound();
+  const module = moduleVonReferentin(r.slug);
 
   return (
     <>
@@ -62,10 +64,27 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
             </section>
           )}
 
-          <section>
-            <h2 className="text-lg font-semibold tracking-tight">Module</h2>
-            <div className="mt-3"><Placeholder>Welche Module diese Referentin hält – kommt aus dem Datenmodell.</Placeholder></div>
-          </section>
+          {module.length > 0 && (
+            <section>
+              <h2 className="text-lg font-semibold tracking-tight">
+                Module in der {module[0].kursTitel}
+              </h2>
+              <ul className="mt-3 space-y-2">
+                {module.map((m) => (
+                  <li key={m.titel} className="flex gap-3 text-sm leading-relaxed">
+                    <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand" />
+                    {m.titel}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={`/kurse/${module[0].kursSlug}/`}
+                className="mt-4 inline-block text-sm text-brand hover:text-brand-dark"
+              >
+                Zur {module[0].kursTitel} →
+              </Link>
+            </section>
+          )}
             <Link href="/referentinnen/" className="inline-block text-sm text-brand hover:text-brand-dark">
               ← Alle Referentinnen
             </Link>

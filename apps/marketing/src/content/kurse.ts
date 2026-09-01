@@ -12,7 +12,11 @@
  *  Kaufweg bleibt aber immer ein Link auf .education. */
 import { site } from "./site";
 
-export type Modul = { titel: string; referentin: string };
+/** referentinSlug verbindet das Modul mit content/referentinnen.ts.
+ *  Bewusst der Slug und nicht der Name: ein Tippfehler im Namen faellt
+ *  niemandem auf, ein unbekannter Slug laesst den Build scheitern -
+ *  siehe content/modulzuordnung.ts. */
+export type Modul = { titel: string; referentin: string; referentinSlug: string };
 export type Merkmal = { titel: string; text: string };
 export type Stimme = { text: string; person: string };
 
@@ -50,16 +54,16 @@ export const kurse: Kurs[] = [
       "Dentalhygieniker:innen und zahnmedizinische Fachangestellte, die ihr Wissen vertiefen " +
       "und ihre Fähigkeiten erweitern möchten.",
     module: [
-      { titel: "Frauengesundheit: Von der Pille bis zur Menopause", referentin: "Sonja Steinert" },
-      { titel: "Einfluss von Stress auf die Mundgesundheit", referentin: "Dr. Lina Dinse" },
-      { titel: "Diabetes und andere Risikofaktoren", referentin: "PD Dr. Dr. Matthias Tröltzsch" },
-      { titel: "Männerhormone und ihre Auswirkungen", referentin: "Jasmin Matthes" },
-      { titel: "Onkologie-Patienten in der Zahnarztpraxis", referentin: "Martina Schaale" },
-      { titel: "Minimalinvasivität in der PMPR/PZR", referentin: "Katja Piecuch" },
-      { titel: "Wirtschaftlichkeit in der Prophylaxe", referentin: "Katja Piecuch" },
-      { titel: "Alterszahnmedizin: Betreuung von Senioren", referentin: "Nicole Graw" },
-      { titel: "Periimplantitis – Prävention und Behandlung", referentin: "Ann-Kathrin Giglberger" },
-      { titel: "Antientzündliche Ernährung in der PA-Therapie", referentin: "Claudia Bastian" },
+      { titel: "Frauengesundheit: Von der Pille bis zur Menopause", referentin: "Sonja Steinert", referentinSlug: "sonja-steinert" },
+      { titel: "Einfluss von Stress auf die Mundgesundheit", referentin: "Dr. Lina Dinse", referentinSlug: "dr-lina-dinse" },
+      { titel: "Diabetes und andere Risikofaktoren", referentin: "PD Dr. Dr. Matthias Tröltzsch", referentinSlug: "pd-dr-dr-matthias-troeltzsch" },
+      { titel: "Männerhormone und ihre Auswirkungen", referentin: "Jasmin Matthes", referentinSlug: "jasmin-matthes" },
+      { titel: "Onkologie-Patienten in der Zahnarztpraxis", referentin: "Martina Schaale", referentinSlug: "martina-schaale" },
+      { titel: "Minimalinvasivität in der PMPR/PZR", referentin: "Katja Piecuch", referentinSlug: "katja-piecuch" },
+      { titel: "Wirtschaftlichkeit in der Prophylaxe", referentin: "Katja Piecuch", referentinSlug: "katja-piecuch" },
+      { titel: "Alterszahnmedizin: Betreuung von Senioren", referentin: "Nicole Graw", referentinSlug: "nicole-graw" },
+      { titel: "Periimplantitis – Prävention und Behandlung", referentin: "Ann-Kathrin Giglberger", referentinSlug: "ann-kathrin-giglberger" },
+      { titel: "Antientzündliche Ernährung in der PA-Therapie", referentin: "Claudia Bastian", referentinSlug: "claudia-bastian" },
     ],
     zielgruppe: [
       "Zahnärztinnen und Zahnärzte",
