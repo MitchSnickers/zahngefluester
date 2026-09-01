@@ -12,7 +12,7 @@ export default function Referentinnen() {
       <PageHeader
         kicker="Referentinnen"
         title="Wer bei Zahngeflüster unterrichtet"
-        lead="PLATZHALTER. Die Referentinnen aller Masterclass-Generationen."
+        lead="Die Referentinnen und Referenten aller Masterclass-Generationen."
       />
       <Container className="py-14">
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -22,7 +22,12 @@ export default function Referentinnen() {
                 href={`/referentinnen/${r.slug}/`}
                 className="block h-full rounded-lg border border-line bg-white p-5 transition-colors hover:border-brand"
               >
-                <p className="font-medium">{r.name}</p>
+                <p className="font-medium">
+                  {r.name}
+                  {r.founder && (
+                    <span className="ml-2 align-middle text-xs font-normal text-brand">Gründerin</span>
+                  )}
+                </p>
                 <p className="mt-1 text-sm text-ink-muted">{r.role}</p>
               </Link>
             </li>
