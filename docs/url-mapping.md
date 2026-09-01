@@ -115,3 +115,20 @@ Im Migrations-Inventar als rechtlich verpflichtend gefuehrt, aber ohne erkennbar
 ### `/produkt/handgemachte-holz-ohrstecker/  (.com)`
 
 Merch. Offene Entscheidung Nr. 5 in Notion. Solange offen, greift der pauschale /produkt/:slug* -> /shop. Wenn Merch bleibt, braucht jeder der 7 Artikel ein eigenes Ziel.
+
+## Domains im Vertrag
+
+Gelesen am 01.09.2026 im Strato-Kundenmenue. Domain-Aliase werden im
+Vercel-Projekt eingetragen, nicht in `packages/redirects` - die Liste steht
+hier, weil eine vergessene Domain nach dem Umzug still ins Leere laeuft.
+
+| Domain | Punycode | Rolle | Ziel nach der Umschaltung |
+|---|---|---|---|
+| `zahngefluester.com` | `zahngefluester.com` | Hauptadresse Marketing | Vercel-Projekt marketing (primaer) |
+| `zahngefluester.education` | `zahngefluester.education` | Shop, Kurse, Konten | Vercel-Projekt education (primaer) |
+| `zahngeflüster.com` | `xn--zahngeflster-klb.com` | Umlaut-Variante | 301 auf zahngefluester.com |
+| `zahngeflüster.de` | `xn--zahngeflster-klb.de` | Umlaut-Variante, aeltere Hauptadresse | 301 auf zahngefluester.com |
+| `zahngeflüster.info` | `xn--zahngeflster-klb.info` | Umlaut-Variante | 301 auf zahngefluester.com |
+
+Offen: die Fussleiste auf .com verlinkt die Datenschutzerklaerung auf
+`zahngefluester.de` (ausgeschrieben). Diese Domain steht nicht in der Liste.

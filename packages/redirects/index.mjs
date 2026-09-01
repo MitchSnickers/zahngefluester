@@ -185,3 +185,56 @@ export const UNRESOLVED = [
       + "der 7 Artikel ein eigenes Ziel.",
   },
 ];
+
+/** Alle Domains im Strato-Vertrag, gelesen am 01.09.2026 im Kundenmenue
+ *  (Paketuebersicht, Auftragsnummer 8711338). Vorher stand im Projekt die
+ *  Annahme, es gebe zwei Domains - es sind fuenf.
+ *
+ *  Das ist keine Weiterleitung im Sinne dieser Datei: Domain-Aliase werden
+ *  nicht im Code, sondern im Vercel-Projekt eingetragen. Die Liste steht
+ *  trotzdem hier, weil sie zur Umschaltung gehoert und weil eine vergessene
+ *  Domain nach dem Umzug still ins Leere laeuft - niemand meldet das, es faellt
+ *  nur der Umsatz aus, den sie gebracht haette.
+ *
+ *  punycode ist die Form, in der die Umlaut-Domains technisch existieren. Wer
+ *  sie im DNS oder bei Vercel eintraegt, braucht diese Schreibweise.
+ *
+ *  OFFEN: die Fussleiste auf .com verlinkt die Datenschutzerklaerung auf
+ *  "zahngefluester.de" - ausgeschrieben. Diese Domain steht NICHT in der Liste.
+ *  Entweder ist der Link ein Tippfehler und meint die Umlaut-Variante, oder er
+ *  zeigt auf eine fremde Domain. Ungeprueft, weil aus dieser Sitzung keine der
+ *  Seiten erreichbar war. Dieselbe Schreibweise taucht in Notion als
+ *  Kontaktadresse info@zahngefluester.de auf - der Punkt haengt also an mehr
+ *  als einem Link. */
+export const DOMAINS = [
+  {
+    domain: "zahngefluester.com",
+    punycode: "zahngefluester.com",
+    rolle: "Hauptadresse Marketing",
+    ziel: "Vercel-Projekt marketing (primaer)",
+  },
+  {
+    domain: "zahngefluester.education",
+    punycode: "zahngefluester.education",
+    rolle: "Shop, Kurse, Konten",
+    ziel: "Vercel-Projekt education (primaer)",
+  },
+  {
+    domain: "zahngeflüster.com",
+    punycode: "xn--zahngeflster-klb.com",
+    rolle: "Umlaut-Variante",
+    ziel: "301 auf zahngefluester.com",
+  },
+  {
+    domain: "zahngeflüster.de",
+    punycode: "xn--zahngeflster-klb.de",
+    rolle: "Umlaut-Variante, aeltere Hauptadresse",
+    ziel: "301 auf zahngefluester.com",
+  },
+  {
+    domain: "zahngeflüster.info",
+    punycode: "xn--zahngeflster-klb.info",
+    rolle: "Umlaut-Variante",
+    ziel: "301 auf zahngefluester.com",
+  },
+];
