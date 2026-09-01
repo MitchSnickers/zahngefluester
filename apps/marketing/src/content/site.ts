@@ -6,8 +6,15 @@ export const site = {
   /* Wortgleich von der Live-Startseite uebernommen. Meine erste Fassung war
      erfunden - diese ist ihre. */
   claim: "Mit Wissen zum Strahlen",
-  intro:
-    "Deine Plattform für Wissen aus der Dentalwelt. Unser Ziel ist es, gemeinsam mit dir und " +
+  /* Der erste Satz der Live-Einleitung, wortgleich herausgeloest. NN/g:
+     Wichtiges ohne Scrollen sichtbar - vier Saetze Fliesstext ueber der Falz
+     sind keine Aussage, sondern eine Huerde. Der Rest steht weiter unten,
+     nicht gestrichen und nicht umformuliert. */
+  introKurz: "Deine Plattform für Wissen aus der Dentalwelt.",
+  /* Der Rest derselben Einleitung, ebenfalls wortgleich. Er steht unter dem
+     Kopfbereich statt darin - getrennt, nicht gekuerzt. */
+  introRest:
+    "Unser Ziel ist es, gemeinsam mit dir und " +
     "unserer Leidenschaft für Innovationen in der ganzheitlichen Zahnmedizin zu entdecken, zu " +
     "verstehen und zu lernen. Es erwarten dich spannende Themen in unseren Online-Webinaren und " +
     "Kursen. Wir freuen uns darauf, dich begrüßen zu dürfen.",

@@ -4,6 +4,7 @@ import { CtaLink } from "@/components/CtaLink";
 import { Placeholder } from "@/components/Placeholder";
 import { Portrait } from "@/components/Portrait";
 import { kurse } from "@/content/kurse";
+import { referentinnenVonKurs } from "@/content/modulzuordnung";
 import { referentinnen } from "@/content/referentinnen";
 import { site } from "@/content/site";
 
@@ -16,22 +17,69 @@ const stimmen = kurse.find((k) => k.slug === "masterclass")?.stimmen ?? [];
  *  Reihenfolge kommt aus content/referentinnen.ts - Gruenderinnen zuerst. */
 const gesichter = referentinnen.slice(0, 8);
 
+/** Die beiden Gruenderinnen tragen den Kopfbereich. NN/g: echte Menschen statt
+ *  Versprechen - und keine zwei Reihen Gesichter uebereinander, sonst wird die
+ *  Startseite zur Belegschaftsseite. */
+const gruenderinnen = referentinnen.filter((r) => r.founder);
+
+/** Zahlen aus den Daten, nicht aus dem Marketing. Aendert sich die Modulliste,
+ *  aendert sich der Abschnitt mit. */
+const masterclass = kurse.find((k) => k.slug === "masterclass");
+const modulAnzahl = masterclass?.module?.length ?? 0;
+const dozentinnenAnzahl = referentinnenVonKurs("masterclass").length;
+
 export default function Startseite() {
   return (
     <>
-      <section className="border-b border-line bg-surface-alt py-20 sm:py-28">
+      <section className="border-b border-line bg-surface-alt py-16 sm:py-24">
         <Container>
-          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-brand">{site.tagline}</p>
-          <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            {site.claim}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">{site.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <CtaLink href="/kurse/">Kurse ansehen</CtaLink>
-            <CtaLink href="/praxen/" variant="secondary">Für Praxen</CtaLink>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_1fr]">
+            <div>
+              <p className="text-sm font-medium uppercase tracking-wider text-brand">{site.tagline}</p>
+              <h1 className="mt-4 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+                {site.claim}
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">{site.introKurz}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <CtaLink href="/kurse/">Kurse ansehen</CtaLink>
+                <CtaLink href="/praxen/" variant="secondary">Für Praxen</CtaLink>
+              </div>
+              {/* Belege statt Adjektive: alle drei Angaben stehen so in den Daten. */}
+              <p className="mt-7 text-sm text-ink-muted">
+                {referentinnen.length} Referentinnen · Zertifikat nach Abschluss · zeitlich unbegrenzter Zugang
+              </p>
+            </div>
+
+            {/* Ohne Markenfoto sind die Gruenderinnen das ehrlichste Bild, das
+                die Seite hat - und laut NN/g das wirksamere: echte Personen mit
+                Namen schlagen jedes Stockfoto. Ein Vektorlogo und ein
+                Querformat-Foto stehen auf der Anforderungsliste. */}
+            <ul className="grid grid-cols-2 gap-5">
+              {gruenderinnen.map((r, i) => (
+                <li key={r.slug}>
+                  <Link href={`/referentinnen/${r.slug}/`} className="group block">
+                    <Portrait
+                      src={r.photo}
+                      name={r.name}
+                      sizes="(min-width: 1024px) 16rem, 42vw"
+                      priority={i === 0}
+                    />
+                    <p className="mt-3 text-sm font-medium group-hover:text-brand-dark">
+                      {r.shortName ?? r.name}
+                    </p>
+                    <p className="mt-0.5 text-xs text-ink-muted">Gründerin</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </Container>
       </section>
+
+      {/* Der Rest der Einleitung, wortgleich - nur nicht mehr ueber der Falz. */}
+      <Container className="py-14">
+        <p className="max-w-2xl text-lg leading-relaxed text-ink-muted">{site.introRest}</p>
+      </Container>
 
       <Container className="py-16">
         <h2 className="text-2xl font-semibold tracking-tight">Fortbildungen</h2>
@@ -51,7 +99,48 @@ export default function Startseite() {
         </div>
       </Container>
 
-      <section className="border-y border-line bg-surface-alt py-16">
+      {/* Der eine Abschnitt pro Seite, der die Markenfarbe als FLAECHE traegt -
+          Regel aus docs/design-regeln.md. Weiss darauf 5,43:1, surface-alt
+          darauf 4,79:1: beides ueber der AA-Schwelle, nachgerechnet.
+          Der Beschreibungssatz ist aus ihrer eigenen Produktbeschreibung in
+          Notion zusammengesetzt, nicht formuliert. */}
+      <section className="bg-brand py-16 text-white sm:py-20">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                Dental Diversity Masterclass 3.0
+              </h2>
+              <p className="mt-4 max-w-xl leading-relaxed text-surface-alt">
+                Praxisorientierte Module mit renommierten Expert:innen – Themen wie Ernährung,
+                Stressmanagement, Alterszahnmedizin und Periimplantitis.
+              </p>
+              <dl className="mt-9 flex flex-wrap gap-x-14 gap-y-6">
+                <div>
+                  <dt className="text-sm text-surface-alt">Module</dt>
+                  <dd className="mt-1 text-3xl font-semibold">{modulAnzahl}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-surface-alt">Referentinnen</dt>
+                  <dd className="mt-1 text-3xl font-semibold">{dozentinnenAnzahl}</dd>
+                </div>
+                <div>
+                  <dt className="text-sm text-surface-alt">Zugang</dt>
+                  <dd className="mt-1 text-3xl font-semibold">unbegrenzt</dd>
+                </div>
+              </dl>
+            </div>
+            <Link
+              href="/kurse/masterclass/"
+              className="inline-flex shrink-0 items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-medium text-brand transition-colors hover:bg-surface-alt"
+            >
+              Zur Masterclass
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-b border-line bg-surface-alt py-16">
         <Container>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <h2 className="text-2xl font-semibold tracking-tight">Von wem du lernst</h2>

@@ -24,19 +24,34 @@
   --color-surface-alt: #F4F0EE;
   --color-sand: #E8E1D8;        /* Flaeche */
   --color-sand-warm: #CAB8A2;   /* Zierrat, niemals Text */
-  --color-line: #E8E1D8;
+  --color-line: #E8E1D8;        /* Zierlinie, 1,30:1 auf Weiss - reicht dafuer */
+  /* WCAG 2.2 / 1.4.11: Umrisse, die ein Bedienelement ERKENNBAR machen,
+     brauchen 3:1 gegen die Nachbarfarbe. #E8E1D8 schafft das nicht.
+     Farbton beibehalten, abgedunkelt bis die Schwelle sitzt: 3,09:1. */
+  --color-line-strong: #9A9189;
   --color-brand: #AF4B2F;       /* als Text auf Weiss 5,43:1, Weiss darauf 5,43:1 */
   --color-brand-dark: #8F3D26;  /* Hover, Weiss darauf 7,33:1 */
 
-  /* Schrift: bewusst noch System-Stack. Die Live-Seite widerspricht sich -
-     Elementor fuehrt als globale Typografie "Inter", gerendert wird
-     ueberwiegend Poppins (76 Elemente) und vereinzelt Montserrat.
-     Welche die gewollte Hausschrift ist, muss von Jasmin und Lina kommen.
-     Danach eine Zeile: next/font/google, Einbettung zur Bauzeit. */
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Schrift, entschieden am 01.09.2026 - Begruendung in docs/design-regeln.md.
+     Die Live-Seite widersprach sich: Elementor fuehrt "Inter" als globale
+     Typografie, gerendert wird ueberwiegend Poppins (76 Elemente) und
+     vereinzelt Montserrat. Beide behalten, jede fuer das, wofuer sie taugt -
+     Poppins fuer Ueberschriften, Inter fuer Fliesstext. Montserrat faellt weg.
+
+     Der System-Stack bleibt als Rueckfall dahinter: laedt die Webschrift
+     nicht, steht dort trotzdem etwas Lesbares. */
+  --font-fallback: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-inter), var(--font-fallback);
+  --font-display: var(--font-poppins), var(--font-fallback);
 }
 
-html { scroll-behavior: smooth; }
+/* Der Kopfbereich klebt (4 rem hoch). Ohne Scroll-Abstand landet ein per Sprung
+   oder per Tabulator angesteuertes Element darunter - genau der Fall, den
+   WCAG 2.2 / 2.4.11 "Focus Not Obscured" meint. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
 
 body {
   background: var(--color-surface);
@@ -48,4 +63,13 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 2px;
+}
+
+/* Ueberschriften tragen die Anzeigeschrift. Zentral statt in jeder Komponente:
+   eine Schriftentscheidung soll eine Datei sein, keine Suche durch das Projekt.
+   Die leichte negative Laufweite gleicht aus, dass Poppins in grossen Graden
+   sonst auseinanderfaellt. */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.015em;
 }

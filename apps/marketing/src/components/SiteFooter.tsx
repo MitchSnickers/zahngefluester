@@ -14,19 +14,23 @@ export function SiteFooter() {
 
         <nav aria-label="Seiten">
           <p className="text-sm font-medium">Seiten</p>
-          <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+          {/* py-1 macht aus 20 px Zeilenhoehe 28 px Trefferflaeche -
+              WCAG 2.2 / 2.5.8 verlangt mindestens 24x24. */}
+          <ul className="mt-3 space-y-1 text-sm text-ink-muted">
             {nav.slice(1).map((i) => (
-              <li key={i.href}><Link href={i.href} className="hover:text-ink">{i.label}</Link></li>
+              <li key={i.href}><Link href={i.href} className="inline-block py-1 hover:text-ink">{i.label}</Link></li>
             ))}
           </ul>
         </nav>
 
         <nav aria-label="Rechtliches">
           <p className="text-sm font-medium">Rechtliches</p>
-          <ul className="mt-3 space-y-2 text-sm text-ink-muted">
+          {/* py-1 macht aus 20 px Zeilenhoehe 28 px Trefferflaeche -
+              WCAG 2.2 / 2.5.8 verlangt mindestens 24x24. */}
+          <ul className="mt-3 space-y-1 text-sm text-ink-muted">
             {footerLegal.map((i) => (
               <li key={i.href}>
-                <Link href={i.href} className="hover:text-ink" {...("external" in i ? { rel: "noopener" } : {})}>
+                <Link href={i.href} className="inline-block py-1 hover:text-ink" {...("external" in i ? { rel: "noopener" } : {})}>
                   {i.label}
                 </Link>
               </li>
