@@ -11,8 +11,8 @@ export default function KursUebersicht() {
     <>
       <PageHeader
         kicker="Kurse"
-        title="Fortbildungen im Überblick"
-        lead="PLATZHALTER. Gebucht und besucht wird auf zahngefluester.education."
+        title="Wissen, das sitzt."
+        lead="Für alle, die in der Zahnmedizin den Unterschied machen wollen. Unsere Kurse und Masterclasses sind praxisnah, evidenzbasiert und von führenden Expert:innen der Dentalbranche entwickelt. Gebucht und besucht wird auf zahngefluester.education."
       />
       <Container className="py-14">
         <ul className="space-y-4">
