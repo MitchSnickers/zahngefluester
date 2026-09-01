@@ -7,9 +7,12 @@ export const site = {
   claim: "Fundierte Fortbildung für die Prophylaxe – von Praktikerinnen für Praktikerinnen.",
   url: "https://www.zahngefluester.com",
   educationUrl: "https://www.zahngefluester.education",
-  email: "info@zahngefluester.com", // TODO pruefen
-  // TODO: ladungsfaehige Anschrift. Fehlt heute in der Widerrufsbelehrung -> abmahnfaehig.
-  address: { line1: "TODO Straße Nr.", line2: "TODO PLZ Ort", country: "Deutschland" },
+  email: "info@zahngefluester.com",
+  phone: "+49 8441 9087405",
+  /* Wortgleich aus dem Live-Impressum von www.zahngefluester.com uebernommen,
+     Stand der Seite dort: 20.11.2024. Nicht umformuliert. */
+  legalName: "Zahngeflüster by Jasmin Matthes & Dr. Lina Dinse GbR",
+  address: { line1: "Gritschstraße 59", line2: "85276 Pfaffenhofen an der Ilm", country: "Deutschland" },
 } as const;
 
 export const nav = [
