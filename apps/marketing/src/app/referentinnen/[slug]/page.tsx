@@ -43,6 +43,20 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
               einholen. Später aus der instructors-Tabelle.
             </Placeholder>
           )}
+          {r.credentials && r.credentials.length > 0 && (
+            <section>
+              <h2 className="text-lg font-semibold tracking-tight">Qualifikationen</h2>
+              <dl className="mt-3 divide-y divide-line border-y border-line">
+                {r.credentials.map((c) => (
+                  <div key={c.label} className="py-3 sm:flex sm:gap-6">
+                    <dt className="text-sm font-medium sm:w-40 sm:shrink-0">{c.label}</dt>
+                    <dd className="mt-1 text-sm text-ink-muted sm:mt-0">{c.text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+
           <section>
             <h2 className="text-lg font-semibold tracking-tight">Module</h2>
             <div className="mt-3"><Placeholder>Welche Module diese Referentin hält – kommt aus dem Datenmodell.</Placeholder></div>

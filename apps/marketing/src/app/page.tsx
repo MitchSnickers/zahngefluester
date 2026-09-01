@@ -14,10 +14,7 @@ export default function Startseite() {
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
             {site.claim}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">
-            PLATZHALTER. Hier steht in zwei bis drei Sätzen, für wen Zahngeflüster ist und
-            was eine Teilnehmerin nach der Fortbildung kann.
-          </p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">{site.intro}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CtaLink href="/kurse/">Kurse ansehen</CtaLink>
             <CtaLink href="/praxen/" variant="secondary">Für Praxen</CtaLink>

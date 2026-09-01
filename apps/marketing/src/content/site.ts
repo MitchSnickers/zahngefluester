@@ -3,8 +3,14 @@
 export const site = {
   name: "Zahngeflüster",
   tagline: "Fortbildung für Dentalhygiene",
-  // TODO: von Jasmin/Lina bestaetigen lassen
-  claim: "Fundierte Fortbildung für die Prophylaxe – von Praktikerinnen für Praktikerinnen.",
+  /* Wortgleich von der Live-Startseite uebernommen. Meine erste Fassung war
+     erfunden - diese ist ihre. */
+  claim: "Mit Wissen zum Strahlen",
+  intro:
+    "Deine Plattform für Wissen aus der Dentalwelt. Unser Ziel ist es, gemeinsam mit dir und " +
+    "unserer Leidenschaft für Innovationen in der ganzheitlichen Zahnmedizin zu entdecken, zu " +
+    "verstehen und zu lernen. Es erwarten dich spannende Themen in unseren Online-Webinaren und " +
+    "Kursen. Wir freuen uns darauf, dich begrüßen zu dürfen.",
   url: "https://www.zahngefluester.com",
   educationUrl: "https://www.zahngefluester.education",
   email: "info@zahngefluester.com",

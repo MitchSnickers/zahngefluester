@@ -10,7 +10,11 @@
  *  Ankuendigungen einzelner Webinare - die meisten mit Terminen aus 2025, also
  *  laengst vorbei. Nur sieben enthalten ueberhaupt Text ueber die Person; bei
  *  den uebrigen acht steht dort ausschliesslich, worum es im jeweiligen Webinar
- *  ging. Deshalb fehlen acht Biografien und muessen von Jasmin und Lina kommen.
+ *  ging.
+ *
+ *  Die Biografien von Jasmin und Lina lagen an einer dritten Stelle: auf
+ *  /about-us/, nicht auf ihren eigenen Referentinnenseiten. Damit sind neun von
+ *  fuenfzehn da; sechs fehlen und muessen von den beiden kommen.
  *
  *  ZWEI OFFENE ENTSCHEIDUNGEN, bewusst nicht selbst getroffen:
  *  1. Uneinheitliche Erzaehlform. Gassmann, Kersting, Bejta und Wittling
@@ -30,6 +34,13 @@ export type Referentin = {
   bio: string;
   /** Gruenderin von Zahngefluester - fuer die Sortierung und die Auszeichnung. */
   founder?: boolean;
+  /** Anrede-Kurzform. Explizit statt aus dem Namen geraten: bei "Dr. Lina Dinse"
+   *  liegt der Vorname in der Mitte, bei anderen woanders. Die Altseite schreibt
+   *  selbst "Über Jasmin." und "Über Lina.". */
+  shortName?: string;
+  /** Mitgliedschaften, Auszeichnungen, Veroeffentlichungen. Wortgleich von der
+   *  Live-Seite /about-us/ uebernommen. */
+  credentials?: { label: string; text: string }[];
   /** Anmerkung fuer uns, nicht fuer die Website. */
   hinweis?: string;
 };
@@ -38,19 +49,53 @@ export const referentinnen: Referentin[] = [
   {
     slug: "jasmin-matthes",
     name: "Jasmin Matthes",
+    shortName: "Jasmin",
     role: "Dentalhygienikerin",
     founder: true,
-    bio: "PLATZHALTER",
-    hinweis: "Auf der Live-Seite steht die Funktion als „Dentalhygienikerin,“ mit " +
-             "abschliessendem Komma - der Text bricht dort ab. Vollstaendige Fassung erfragen.",
+    bio:
+      "Ich bin Jasmin, Dentalhygienikerin seit 2011. Die Zahnmedizin ist bunt und voller Themen, " +
+      "die in der regulären Ausbildung meistens zu kurz kommen. Mein Traum ist es, diese vielen " +
+      "Themen zum Leben zu erwecken. Ich habe schon früh gemerkt, dass es immer wieder Patienten " +
+      "gibt, bei denen der Therapieerfolg ausbleibt, obwohl beide Seiten ihr Bestes gegeben haben. " +
+      "Die Weiterbildung zur ganzheitlichen Prophylaxeexpertin hat meinen Blick erweitert. Manche " +
+      "„Baustellen“ liegen nicht in der 6-mm-Tasche, und nicht alles lässt sich durch die " +
+      "Schulmedizin lösen. Mein Antrieb ist es, den Menschen zu helfen. Es gibt für mich kein " +
+      "schöneres Gefühl; es bereitet mir einfach jeden Tag Freude. Die Parodontitistherapie ist " +
+      "ein langer, teils lebenslanger Prozess, in dem man Menschen begleiten darf, sieht, wie sie " +
+      "sich verändern und wachsen. Ihnen Impulse für ihre eigene Gesundheit geben zu können, ist " +
+      "ein tolles Gefühl.",
+    credentials: [
+      { label: "Mitgliedschaft", text: "Anerkannte Fachexpertin im Berufsverband der deutschen Dentalhygienikerinnen" },
+      { label: "Erfahrung", text: "Seit 2010 als ZMP (eazf), seit 2011 als DH (eazf) tätig" },
+      { label: "Ganzheitlich", text: "Fokus auf umfassende Prophylaxe" },
+      { label: "Ausgezeichnet", text: "Unter den Top drei Auszubildenden in Bayern, gefördert durch ein Stipendium" },
+    ],
+    hinweis: "Biografie und Qualifikationen stammen von /about-us/, nicht von der eigenen " +
+             "Referentinnenseite - dort bricht die Funktionsbezeichnung mit einem Komma ab " +
+             "(„Dentalhygienikerin,“). Auf der Altseite korrigieren lassen.",
   },
   {
     slug: "dr-lina-dinse",
     name: "Dr. Lina Dinse",
+    shortName: "Lina",
     role: "Zahnärztin",
     founder: true,
-    bio: "PLATZHALTER",
-    hinweis: "Auf der Live-Seite ist der Webinartext beschaedigt: die Ueberschrift " +
+    bio:
+      "Ich bin Dr. Lina Dinse, und ich wollte schon immer Zahnärztin werden. Als Kind war ich " +
+      "fasziniert von einer 60-jährigen Zahnärztin, die zur Gruppenprophylaxe in der Grundschule " +
+      "war und die „Geheimnisse der Karies“ gelüftet hat. Da ist mein zahnmedizinisches Feuer " +
+      "entbrannt. Es gibt kein Thema und keinen Bereich, der mich nicht interessiert, egal ob " +
+      "klassisch schulmedizinisch oder über den Tellerrand hinaus – meine Begeisterung bleibt " +
+      "stets bestehen. Wenn am Ende der Patient dann mit einem lachenden Gesicht die Praxis " +
+      "verlässt, hat sich jeder Moment ausgezahlt.",
+    credentials: [
+      { label: "Mitgliedschaft", text: "Teil der renommierten Fachgesellschaft DG Paro" },
+      { label: "Curriculum", text: "Aktuelle Fortbildung bei der DG Paro, Erweiterung ihrer Fachkompetenz" },
+      { label: "Ausgezeichnet", text: "Gewinnerin des Prof. Schlegel Dissertationspreises" },
+      { label: "Publikationen", text: "Veröffentlichungen zum Thema Dentalkeramik in den Fachzeitschriften Quintessenz Zahntechnik und Dental Materials" },
+    ],
+    hinweis: "Biografie und Qualifikationen stammen von /about-us/. " +
+             "Auf der Live-Seite ist der Webinartext beschaedigt: die Ueberschrift " +
              "„Einfluss von Stress auf die Mundgesundheit“ ist mitten in den Absatz " +
              "gerutscht („Einfluss von S“ + Text + „tress auf die Mundgesundheit“). " +
              "Betrifft die Altseite, nicht den Neubau - aber jemand sollte es dort richten.",
