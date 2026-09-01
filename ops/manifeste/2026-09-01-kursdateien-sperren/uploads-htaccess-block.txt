@@ -1,0 +1,24 @@
+# === ZG-SCHUTZ ANFANG 2026-09-01 ===
+# Sperrt den direkten Abruf des Unterrichtsmaterials der Masterclass 1.0 und 2.0.
+#
+# Grund: diese 31 Dateien waren ohne Anmeldung abrufbar, zusammen 336 MB,
+# teils seit August 2024. Befund: ops/befunde/kursdateien-2026-09-01.json
+# im Projektrepo MitchSnickers/zahngefluester.
+#
+# BEWUSSTE FOLGE: die Sperre gilt fuer ALLE, auch fuer angemeldete Kundinnen.
+# Der Webserver liefert diese Dateien direkt aus und kennt keine Anmeldung -
+# eine Sperre kann hier nicht zwischen Kundin und Fremder unterscheiden. Wer
+# die Masterclass 1.0 oder 2.0 gekauft hat, kann die Handouts bis auf Weiteres
+# nicht mehr herunterladen. Die Lektionen in der Lernplattform sind nicht
+# betroffen.
+#
+# Das ist eine Zwischenloesung. Der Dauerzustand ist die Auslieferung ueber
+# eine Anmeldepruefung.
+#
+# Rueckbau: alles zwischen den beiden ZG-SCHUTZ-Marken entfernen. Sicherung der
+# urspruenglichen Datei siehe Manifest
+# ops/manifeste/2026-09-01-kursdateien-sperren/
+<FilesMatch "^(BMV\-Z_20180425_Anlage14b\-Hinweise\.pdf|DentalDiversityMC_LiteraturUndLinks\.pdf|Einfluss_von_Stress\.pdf|Ernaehrung\-D\.D\-Masterclass2\.0\.pdf|Maennerhormone\.pdf|Maennerhormone_Zahngefluester\.pdf|Medizinische\-Aspekte\-Matthias\-Troeltzsch\.pdf|Microsoft\-Word\-140410_Kooperationsvertrag\-zahnaerztl\-u\-pfleger\-Versorgung\-Kopie\-2\.pdf|Minimalinvasivitaet\-in\-der\-PMPRUPTAIT_1\.pdf|Neutral\-Modern\-Speech\-Therapy\-Themes\-Handout\.pdf|Oele\-in\-der\-Zahnarztpraxis\-2025\.pdf|Onkologie\-meets\-Zahnmedizin\.pdf|POWERPOINT\-ANAMNESE\.pdf|Periimplantitis\-Vortrag\.pdf|Pflegeampel\.docx|Praesentation\-Mundschleimhaut\.pdf|PraesentationDemenz\.pdf|Ueberleitungsbogen_08_2018\.pdf|Vitamin\-D\-in\-der\-Parodontologie\-Praesentation\.pdf|Vitamin\-D\-in\-der\-Parodontologie\-Skript\.pdf|Webinar_Zahnarzt_3_Thea_\-1\.pdf|Wirtschaftliche\-Prophylaxe\-aus\-DH\-Sicht\.pdf|Zahnaerztlicher\-Bogen\-Kopie\.pdf|Zahngefluester_Hand\-out\.pdf|Zahngefluster\.pdf|Zungendiagnostik\-1\.pdf|dental_diversity_masterclass_2\.0\-1080p\.mp4|hexxdent_NUR\-Darm_skript\.pdf|hexxdent_Webinar_Frauengesundheit\-in\-der\-Zahnmedizin_20240621_skript\.pdf|kh_einladung_himacs_verarbeiterworkshop_2024_clustersued_screen2\.pdf|zahngefluesterPocket\-X\.pdf)$">
+	Require all denied
+</FilesMatch>
+# === ZG-SCHUTZ ENDE 2026-09-01 ===
