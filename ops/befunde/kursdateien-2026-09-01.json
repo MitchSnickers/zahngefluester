@@ -6,39 +6,165 @@
     "medienEndpunktOhneAnmeldung": 200,
     "dateienGesamt": 248,
     "verzeichnisauflistung": 404,
-    "stichprobeEinzelabruf": "6 von 6 Dateien mit HTTP 206 erreichbar"
+    "stichprobeEinzelabruf": "6 von 6 Dateien mit HTTP 206 erreichbar",
+    "kopfzeileXWPTotal": 256
   },
   "schutzwuerdig": [
-    { "pfad": "2025/04/dental_diversity_masterclass_2.0-1080p.mp4", "typ": "mp4", "bytes": 19856524 },
-    { "pfad": "2025/04/Zahnaerztlicher-Bogen-Kopie.pdf", "typ": "pdf", "bytes": 49660 },
-    { "pfad": "2025/04/Ueberleitungsbogen_08_2018.pdf", "typ": "pdf", "bytes": 137353 },
-    { "pfad": "2025/04/Pflegeampel.docx", "typ": "docx", "bytes": 116638 },
-    { "pfad": "2025/04/Microsoft-Word-140410_Kooperationsvertrag-zahnaerztl-u-pfleger-Versorgung-Kopie-2.pdf", "typ": "pdf", "bytes": 111418 },
-    { "pfad": "2025/04/BMV-Z_20180425_Anlage14b-Hinweise.pdf", "typ": "pdf", "bytes": 390203 },
-    { "pfad": "2025/03/Ernaehrung-D.D-Masterclass2.0.pdf", "typ": "pdf", "bytes": 4374156 },
-    { "pfad": "2025/03/Periimplantitis-Vortrag.pdf", "typ": "pdf", "bytes": 6339427 },
-    { "pfad": "2025/03/Zahngefluester_Hand-out.pdf", "typ": "pdf", "bytes": 4051847 },
-    { "pfad": "2025/03/Wirtschaftliche-Prophylaxe-aus-DH-Sicht.pdf", "typ": "pdf", "bytes": 9666326 },
-    { "pfad": "2025/02/Minimalinvasivitaet-in-der-PMPRUPTAIT_1.pdf", "typ": "pdf", "bytes": 15089303 },
-    { "pfad": "2025/02/Onkologie-meets-Zahnmedizin.pdf", "typ": "pdf", "bytes": 42862894 },
-    { "pfad": "2025/01/Maennerhormone_Zahngefluester.pdf", "typ": "pdf", "bytes": 34714791 },
-    { "pfad": "2025/01/Medizinische-Aspekte-Matthias-Troeltzsch.pdf", "typ": "pdf", "bytes": 15337171 },
-    { "pfad": "2025/01/Einfluss_von_Stress.pdf", "typ": "pdf", "bytes": 34446457 },
-    { "pfad": "2025/01/hexxdent_Webinar_Frauengesundheit-in-der-Zahnmedizin_20240621_skript.pdf", "typ": "pdf", "bytes": 15024404 },
-    { "pfad": "2025/01/Maennerhormone.pdf", "typ": "pdf", "bytes": 13046110 },
-    { "pfad": "2024/08/Zungendiagnostik-1.pdf", "typ": "pdf", "bytes": 11658763 },
-    { "pfad": "2024/08/Webinar_Zahnarzt_3_Thea_-1.pdf", "typ": "pdf", "bytes": 26137929 },
-    { "pfad": "2024/08/zahngefluesterPocket-X.pdf", "typ": "pdf", "bytes": 5701937 },
-    { "pfad": "2024/08/Vitamin-D-in-der-Parodontologie-Skript.pdf", "typ": "pdf", "bytes": 1073373 },
-    { "pfad": "2024/08/Vitamin-D-in-der-Parodontologie-Praesentation.pdf", "typ": "pdf", "bytes": 950040 },
-    { "pfad": "2024/08/Oele-in-der-Zahnarztpraxis-2025.pdf", "typ": "pdf", "bytes": 44767606 },
-    { "pfad": "2024/08/Praesentation-Mundschleimhaut.pdf", "typ": "pdf", "bytes": 10451495 },
-    { "pfad": "2024/08/Zahngefluster.pdf", "typ": "pdf", "bytes": 2050940 },
-    { "pfad": "2024/08/DentalDiversityMC_LiteraturUndLinks.pdf", "typ": "pdf", "bytes": 302027 },
-    { "pfad": "2024/08/hexxdent_NUR-Darm_skript.pdf", "typ": "pdf", "bytes": 6859843 },
-    { "pfad": "2024/08/PraesentationDemenz.pdf", "typ": "pdf", "bytes": 23000636 },
-    { "pfad": "2024/08/POWERPOINT-ANAMNESE.pdf", "typ": "pdf", "bytes": 3817363 },
-    { "pfad": "2024/08/Neutral-Modern-Speech-Therapy-Themes-Handout.pdf", "typ": "pdf", "bytes": 239712 },
-    { "pfad": "2024/06/kh_einladung_himacs_verarbeiterworkshop_2024_clustersued_screen2.pdf", "typ": "pdf", "bytes": 187240 }
-  ]
+    {
+      "pfad": "2025/04/dental_diversity_masterclass_2.0-1080p.mp4",
+      "typ": "mp4",
+      "bytes": 19856524
+    },
+    {
+      "pfad": "2025/04/Zahnaerztlicher-Bogen-Kopie.pdf",
+      "typ": "pdf",
+      "bytes": 49660
+    },
+    {
+      "pfad": "2025/04/Ueberleitungsbogen_08_2018.pdf",
+      "typ": "pdf",
+      "bytes": 137353
+    },
+    {
+      "pfad": "2025/04/Pflegeampel.docx",
+      "typ": "docx",
+      "bytes": 116638
+    },
+    {
+      "pfad": "2025/04/Microsoft-Word-140410_Kooperationsvertrag-zahnaerztl-u-pfleger-Versorgung-Kopie-2.pdf",
+      "typ": "pdf",
+      "bytes": 111418
+    },
+    {
+      "pfad": "2025/04/BMV-Z_20180425_Anlage14b-Hinweise.pdf",
+      "typ": "pdf",
+      "bytes": 390203
+    },
+    {
+      "pfad": "2025/03/Ernaehrung-D.D-Masterclass2.0.pdf",
+      "typ": "pdf",
+      "bytes": 4374156
+    },
+    {
+      "pfad": "2025/03/Periimplantitis-Vortrag.pdf",
+      "typ": "pdf",
+      "bytes": 6339427
+    },
+    {
+      "pfad": "2025/03/Zahngefluester_Hand-out.pdf",
+      "typ": "pdf",
+      "bytes": 4051847
+    },
+    {
+      "pfad": "2025/03/Wirtschaftliche-Prophylaxe-aus-DH-Sicht.pdf",
+      "typ": "pdf",
+      "bytes": 9666326
+    },
+    {
+      "pfad": "2025/02/Minimalinvasivitaet-in-der-PMPRUPTAIT_1.pdf",
+      "typ": "pdf",
+      "bytes": 15089303
+    },
+    {
+      "pfad": "2025/02/Onkologie-meets-Zahnmedizin.pdf",
+      "typ": "pdf",
+      "bytes": 42862894
+    },
+    {
+      "pfad": "2025/01/Maennerhormone_Zahngefluester.pdf",
+      "typ": "pdf",
+      "bytes": 34714791
+    },
+    {
+      "pfad": "2025/01/Medizinische-Aspekte-Matthias-Troeltzsch.pdf",
+      "typ": "pdf",
+      "bytes": 15337171
+    },
+    {
+      "pfad": "2025/01/Einfluss_von_Stress.pdf",
+      "typ": "pdf",
+      "bytes": 34446457
+    },
+    {
+      "pfad": "2025/01/hexxdent_Webinar_Frauengesundheit-in-der-Zahnmedizin_20240621_skript.pdf",
+      "typ": "pdf",
+      "bytes": 15024404
+    },
+    {
+      "pfad": "2025/01/Maennerhormone.pdf",
+      "typ": "pdf",
+      "bytes": 13046110
+    },
+    {
+      "pfad": "2024/08/Zungendiagnostik-1.pdf",
+      "typ": "pdf",
+      "bytes": 11658763
+    },
+    {
+      "pfad": "2024/08/Webinar_Zahnarzt_3_Thea_-1.pdf",
+      "typ": "pdf",
+      "bytes": 26137929
+    },
+    {
+      "pfad": "2024/08/zahngefluesterPocket-X.pdf",
+      "typ": "pdf",
+      "bytes": 5701937
+    },
+    {
+      "pfad": "2024/08/Vitamin-D-in-der-Parodontologie-Skript.pdf",
+      "typ": "pdf",
+      "bytes": 1073373
+    },
+    {
+      "pfad": "2024/08/Vitamin-D-in-der-Parodontologie-Praesentation.pdf",
+      "typ": "pdf",
+      "bytes": 950040
+    },
+    {
+      "pfad": "2024/08/Oele-in-der-Zahnarztpraxis-2025.pdf",
+      "typ": "pdf",
+      "bytes": 44767606
+    },
+    {
+      "pfad": "2024/08/Praesentation-Mundschleimhaut.pdf",
+      "typ": "pdf",
+      "bytes": 10451495
+    },
+    {
+      "pfad": "2024/08/Zahngefluster.pdf",
+      "typ": "pdf",
+      "bytes": 2050940
+    },
+    {
+      "pfad": "2024/08/DentalDiversityMC_LiteraturUndLinks.pdf",
+      "typ": "pdf",
+      "bytes": 302027
+    },
+    {
+      "pfad": "2024/08/hexxdent_NUR-Darm_skript.pdf",
+      "typ": "pdf",
+      "bytes": 6859843
+    },
+    {
+      "pfad": "2024/08/PraesentationDemenz.pdf",
+      "typ": "pdf",
+      "bytes": 23000636
+    },
+    {
+      "pfad": "2024/08/POWERPOINT-ANAMNESE.pdf",
+      "typ": "pdf",
+      "bytes": 3817363
+    },
+    {
+      "pfad": "2024/08/Neutral-Modern-Speech-Therapy-Themes-Handout.pdf",
+      "typ": "pdf",
+      "bytes": 239712
+    },
+    {
+      "pfad": "2024/06/kh_einladung_himacs_verarbeiterworkshop_2024_clustersued_screen2.pdf",
+      "typ": "pdf",
+      "bytes": 187240
+    }
+  ],
+  "luecke_im_befund": "Die Kopfzeile X-WP-Total meldet 256 Dateien, ueber die Seitenabrufe kamen aber nur 248 zurueck (erste Seite lieferte 97 statt 100 angeforderter Eintraege). Acht Dateien werden also gezaehlt, aber nicht ausgeliefert - moeglicherweise Anhaenge nicht oeffentlicher Beitraege. Die Liste der 31 schutzwuerdigen Dateien ist deshalb moeglicherweise unvollstaendig. Wer die Luecke schliesst, sollte im WordPress-Backend gegenpruefen und sich nicht auf diese Aufstellung allein verlassen."
 }

@@ -36,12 +36,20 @@ let offen = 0;
 // Das ist der schwerwiegendere Teil: ohne diese Liste muesste man Adressen
 // raten, mit ihr bekommt man sie frei Haus.
 let listeOffen = false, gesamt = "?";
+const befundAnzahlHinweis = 248;
 try {
   const r = await fetch(`${HOST}/wp-json/wp/v2/media?per_page=1&_fields=id`, { redirect: "follow" });
   gesamt = r.headers.get("X-WP-Total") ?? "?";
   listeOffen = r.ok;
   console.log(`  Dateiliste ohne Anmeldung   HTTP ${r.status}` +
               (r.ok ? `  -> OFFEN, ${gesamt} Dateien auflistbar` : "  -> gesperrt"));
+  // Die Kopfzeile zaehlt mehr Dateien, als die Seitenabrufe liefern (256 gegen 248 am
+  // 01.09.2026). Die Liste unten ist deshalb moeglicherweise nicht vollstaendig - im
+  // Backend gegenpruefen, bevor man sie fuer erschoepfend haelt.
+  if (gesamt !== "?" && Number(gesamt) > befundAnzahlHinweis) {
+    console.log(`  Hinweis: die Kopfzeile zaehlt ${gesamt} Dateien, erfasst sind ${befundAnzahlHinweis}.`);
+    console.log(`  Diese Pruefung deckt nur die erfassten ab - im Backend gegenpruefen.`);
+  }
 } catch (e) {
   console.log(`  Dateiliste ohne Anmeldung   nicht erreichbar (${e.message.slice(0, 40)})`);
 }
