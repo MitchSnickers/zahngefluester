@@ -29,7 +29,10 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="hidden shrink-0 sm:block">
+        {/* Immer sichtbar, auch auf dem Telefon. Das ist der einzige Weg, auf dem
+            eine Bestandskundin von hier zu ihrem gekauften Kurs kommt - er darf
+            nicht hinter einem Umbruch verschwinden. */}
+        <div className="shrink-0">
           <CtaLink href={`${site.educationUrl}/login/`} variant="secondary">
             Login
           </CtaLink>

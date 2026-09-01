@@ -1,0 +1,53 @@
+name: CI
+
+# Zweck: verhindern, dass ein Commit den Build bricht und es erst abends beim
+# naechsten Anlauf auffaellt. Drei Pruefungen blockieren, eine berichtet nur.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Aeltere Laeufe desselben Zweigs abbrechen - es zaehlt nur der neueste Stand.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pruefen:
+    name: Build und Pruefungen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # npm ci statt npm install: bricht ab, wenn package-lock.json nicht zur
+      # package.json passt. Genau das soll auffallen.
+      - name: Abhaengigkeiten
+        run: npm ci
+
+      - name: Linter
+        run: npm run lint
+
+      # Blockierend: eine doppelte Quelle im Mapping laesst eine Weiterleitung
+      # stillschweigend verschwinden.
+      - name: URL-Mapping
+        run: npm run check:redirects
+
+      - name: Build Marketing-Seite
+        run: npm run build:marketing
+
+      # Berichtet nur. Bis zum Launch ist "nicht bereit" der Sollzustand -
+      # ein rotes Kreuz dafuer wuerde man sich abgewoehnen zu lesen.
+      # Der Zaehler in der Zusammenfassung ist der Fortschrittsbalken.
+      - name: Launch-Sperre (nur Bericht)
+        if: always()
+        run: |
+          echo '## Launch-Sperre' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          npm run launch-check --silent >> "$GITHUB_STEP_SUMMARY" 2>&1 || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

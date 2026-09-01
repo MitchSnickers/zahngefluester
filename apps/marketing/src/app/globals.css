@@ -1,17 +1,38 @@
 @import "tailwindcss";
 
-/* Design-Tokens. PLATZHALTER-Palette - die echten Markenfarben kommen von
-   Jasmin/Lina bzw. aus der bestehenden Seite. Bewusst als Tokens, damit ein
-   Farbwechsel eine Datei ist und keine Suche durch 15 Komponenten. */
+/* Design-Tokens. Als Tokens gehalten, damit ein Farbwechsel eine Datei ist
+   und keine Suche durch fuenfzehn Komponenten. */
 @theme {
-  --color-ink: oklch(0.24 0.02 260);
-  --color-ink-muted: oklch(0.48 0.015 260);
-  --color-surface: oklch(0.99 0.004 260);
-  --color-surface-alt: oklch(0.96 0.008 250);
-  --color-line: oklch(0.9 0.008 260);
-  --color-brand: oklch(0.55 0.11 200);
-  --color-brand-dark: oklch(0.44 0.1 200);
+  /* Markenfarben, am 01.09.2026 aus den Elementor-Variablen der Live-Seite
+     www.zahngefluester.com ausgelesen - nicht erfunden und nicht geraten:
+       --e-global-color-primary    #282828
+       --e-global-color-secondary  #CAB8A2
+       --e-global-color-text       #928781
+       --e-global-color-accent     #AF4B2F
+       Flaechen                    #E8E1D8, #F4F0EE, #FFFFFF
 
+     Eine Abweichung ist bewusst: das Markengrau #928781 erreicht als Fliesstext
+     auf #F4F0EE nur 3,09:1 und faellt damit durch WCAG AA (4,5:1). Uebernommen
+     wird der Farbton, abgedunkelt auf #736963 -> 4,72:1. Die Altseite hat dieses
+     Problem, wir schleppen es nicht mit.
+
+     #CAB8A2 ist Flaeche, nie Text: als Text auf Weiss nur 1,93:1. */
+
+  --color-ink: #282828;         /* auf Weiss 14,74:1 */
+  --color-ink-muted: #736963;   /* auf Off-White 4,72:1 */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F4F0EE;
+  --color-sand: #E8E1D8;        /* Flaeche */
+  --color-sand-warm: #CAB8A2;   /* Zierrat, niemals Text */
+  --color-line: #E8E1D8;
+  --color-brand: #AF4B2F;       /* als Text auf Weiss 5,43:1, Weiss darauf 5,43:1 */
+  --color-brand-dark: #8F3D26;  /* Hover, Weiss darauf 7,33:1 */
+
+  /* Schrift: bewusst noch System-Stack. Die Live-Seite widerspricht sich -
+     Elementor fuehrt als globale Typografie "Inter", gerendert wird
+     ueberwiegend Poppins (76 Elemente) und vereinzelt Montserrat.
+     Welche die gewollte Hausschrift ist, muss von Jasmin und Lina kommen.
+     Danach eine Zeile: next/font/google, Einbettung zur Bauzeit. */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 

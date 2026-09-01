@@ -3,7 +3,12 @@ import { COM_GONE_PATHS } from "@zg/redirects";
 
 /** 410 Gone.
  *
- *  Warum eigene Middleware und kein Redirect: Next kann in redirects() nur 30x
+ *  Ab Next 16 heisst diese Datei proxy.ts, frueher middleware.ts.
+ *  Wichtig: bei vorhandenem src/-Verzeichnis MUSS sie in src/ liegen -
+ *  im Projektstamm wird sie stillschweigend ignoriert, und alle 410er
+ *  liefern dann 404.
+ *
+ *  Warum ueberhaupt eine eigene Datei und kein Redirect: Next kann in redirects() nur 30x
  *  liefern. Diese URLs hatten nie Inhalt, den jemand sucht - ein 301 auf die
  *  Startseite waere ein Soft-404 und haelt die Leichen im Index. 410 nimmt sie
  *  dauerhaft raus.
@@ -20,7 +25,7 @@ const BODY = `<!doctype html><html lang="de"><head><meta charset="utf-8">
 <p>Es gibt keinen Nachfolger. <a href="/">Zur Startseite</a></p>
 </body></html>`;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname.replace(/\/+$/, "") || "/";
   if (gone.has(path)) {
     return new NextResponse(BODY, {

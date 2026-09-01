@@ -30,7 +30,9 @@ export default async function Produktseite({ params }: { params: Promise<{ slug:
       <PageHeader kicker={kurs.kicker} title={kurs.title} lead={kurs.summary} />
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-[1fr_20rem]">
-          <div className="space-y-8">
+          {/* Auf schmalen Schirmen steht der Preis oben: wer kaufen will, soll
+              nicht erst an drei Inhaltsabschnitten vorbeiscrollen muessen. */}
+          <div className="order-2 space-y-8 lg:order-1">
             <section>
               <h2 className="text-xl font-semibold tracking-tight">Inhalte</h2>
               <div className="mt-3"><Placeholder>Modulübersicht – kommt später aus der courses/modules-Tabelle.</Placeholder></div>
@@ -45,7 +47,7 @@ export default async function Produktseite({ params }: { params: Promise<{ slug:
             </section>
           </div>
 
-          <aside className="h-fit rounded-lg border border-line bg-surface-alt p-6 lg:sticky lg:top-24">
+          <aside className="order-1 h-fit rounded-lg border border-line bg-surface-alt p-6 lg:order-2 lg:sticky lg:top-24">
             <p className="text-2xl font-semibold">{kurs.price}</p>
             <p className="mt-2 text-sm text-ink-muted">{kurs.format}</p>
             {kurs.cePoints !== null && (

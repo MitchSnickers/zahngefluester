@@ -146,16 +146,30 @@ Zeilen werden nicht gelöscht, sondern mit Begründung ersetzt. Die Liste
 
 ### 3.5 Platzhalter müssen sichtbar sein
 
-Unfertige Inhalte laufen über die `Placeholder`-Komponente oder tragen das Wort
-`PLATZHALTER` bzw. `TODO`. Vor einem Launch gilt:
+Unfertige Inhalte laufen über die `Placeholder`-Komponente. Vor einem Launch:
 
 ```
-rg -i "platzhalter|TODO" apps/marketing/src
+npm run launch-check
 ```
 
-muss leer sein. Solange das nicht so ist, bleibt `robots: noindex` in
-`app/layout.tsx` und `app/robots.ts` stehen. Beides sind bewusste Schalter, die
-zusammen umgelegt werden.
+muss ohne Befund durchlaufen. Erst danach fällt `robots: noindex` in
+`app/layout.tsx` und `app/robots.ts` — beides sind bewusste Schalter, die
+zusammen umgelegt werden, und das Skript meldet den Widerspruch, wenn jemand
+sie zu früh umlegt.
+
+**Warum ein Skript und keine Suche nach dem Wort.** Die ursprüngliche Regel hier
+lautete: `rg -i "platzhalter|TODO"` muss leer sein. Am 01.09.2026 stellte sich
+heraus, dass sie eine blinde Stelle hat — Impressum, Datenschutz, Kontakt und
+die fünfzehn Referentinnen-Seiten tragen unfertige Kästen, in deren Text das
+Wort gar nicht vorkommt. Ausgerechnet die rechtlich heiklen Seiten wären als
+fertig durchgegangen. Verlässlich ist die Komponente, nicht das Wort.
+
+**Und Platzhalter müssen von selbst verschwinden.** Wenn echte Inhalte in
+`src/content/` eintreffen, soll die Seite sie zeigen, ohne dass jemand zusätzlich
+eine Komponente umbaut. Beispiel: `referentinnen.ts` hatte ein `bio`-Feld, das
+nirgends gerendert wurde — wer es gefüllt hätte, hätte auf der Seite keine
+Änderung gesehen. Bei jedem neuen Platzhalter prüfen: Wo kommt der echte Inhalt
+her, und erscheint er automatisch, sobald er da ist?
 
 ### 3.6 Rechtstexte werden nicht formuliert
 

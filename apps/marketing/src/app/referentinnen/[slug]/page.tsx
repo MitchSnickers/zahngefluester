@@ -31,10 +31,18 @@ export default async function ReferentinSeite({ params }: { params: Promise<{ sl
       <PageHeader kicker={r.role} title={r.name} />
       <Container className="py-14">
         <div className="max-w-2xl space-y-6">
-          <Placeholder>
-            Biografie {r.name} – Text und Foto von der Altseite übernehmen oder neu
-            einholen. Später aus der instructors-Tabelle.
-          </Placeholder>
+          {/* Sobald in content/referentinnen.ts eine echte Biografie steht, wird sie
+              hier ausgegeben und der Platzhalter verschwindet von selbst. Vorher
+              stand das bio-Feld ungenutzt in den Daten - wer es gefuellt haette,
+              haette auf der Seite keine Aenderung gesehen. */}
+          {r.bio && r.bio !== "PLATZHALTER" ? (
+            <p className="text-base leading-relaxed text-ink-muted">{r.bio}</p>
+          ) : (
+            <Placeholder>
+              Biografie {r.name} – Text und Foto von der Altseite übernehmen oder neu
+              einholen. Später aus der instructors-Tabelle.
+            </Placeholder>
+          )}
           <section>
             <h2 className="text-lg font-semibold tracking-tight">Module</h2>
             <div className="mt-3"><Placeholder>Welche Module diese Referentin hält – kommt aus dem Datenmodell.</Placeholder></div>

@@ -9,7 +9,9 @@
     "dev:marketing": "npm run dev --workspace=@zg/marketing",
     "build:marketing": "npm run build --workspace=@zg/marketing",
     "lint": "npm run lint --workspaces --if-present",
-    "docs:urls": "node scripts/url-mapping.mjs"
+    "docs:urls": "node scripts/url-mapping.mjs",
+    "launch-check": "node scripts/launch-check.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs"
   },
   "engines": {
     "node": ">=20.11"
