@@ -36,3 +36,13 @@ export function moduleVonReferentin(slug: string): ModulMitKurs[] {
       .map((m) => ({ ...m, kursSlug: k.slug, kursTitel: k.title })),
   );
 }
+
+/** Die Referentinnen eines Kurses, in der Reihenfolge der Module und ohne
+ *  Doppelte. Katja Piecuch haelt zwei Module - sie soll einmal erscheinen. */
+export function referentinnenVonKurs(kursSlug: string) {
+  const kurs = kurse.find((k) => k.slug === kursSlug);
+  const slugs = [...new Set((kurs?.module ?? []).map((m) => m.referentinSlug))];
+  return slugs
+    .map((slug) => referentinnen.find((r) => r.slug === slug))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+}

@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/Container";
 import { CtaLink } from "@/components/CtaLink";
 import { PageHeader } from "@/components/PageHeader";
 import { Placeholder } from "@/components/Placeholder";
+import { Portrait } from "@/components/Portrait";
 import { kurse } from "@/content/kurse";
+import { referentinnenVonKurs } from "@/content/modulzuordnung";
 
 /** Produktseiten als eine Vorlage, nicht als drei handgeschriebene Seiten -
  *  passend zum Schablonen-Gedanken aus der Architekturseite.
@@ -27,6 +30,7 @@ export default async function Produktseite({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const kurs = kurse.find((k) => k.slug === slug);
   if (!kurs) notFound();
+  const dozentinnen = referentinnenVonKurs(kurs.slug);
 
   return (
     <>
@@ -47,6 +51,24 @@ export default async function Produktseite({ params }: { params: Promise<{ slug:
                     >
                       <span className="text-sm leading-snug">{m.titel}</span>
                       <span className="shrink-0 text-xs text-ink-muted">{m.referentin}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {dozentinnen.length > 0 && (
+              <section>
+                <h2 className="text-xl font-semibold tracking-tight">Deine Referentinnen</h2>
+                <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+                  {dozentinnen.map((r) => (
+                    <li key={r.slug}>
+                      <Link href={`/referentinnen/${r.slug}/`} className="group block">
+                        <Portrait src={r.photo} name={r.name} sizes="(min-width: 640px) 20vw, 50vw" />
+                        <p className="mt-2 text-sm font-medium group-hover:text-brand-dark">
+                          {r.shortName ?? r.name}
+                        </p>
+                      </Link>
                     </li>
                   ))}
                 </ul>

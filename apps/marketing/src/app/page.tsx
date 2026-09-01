@@ -2,12 +2,19 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { CtaLink } from "@/components/CtaLink";
 import { Placeholder } from "@/components/Placeholder";
+import { Portrait } from "@/components/Portrait";
 import { kurse } from "@/content/kurse";
+import { referentinnen } from "@/content/referentinnen";
 import { site } from "@/content/site";
 
 /** Die Stimmen liegen bei der Masterclass, nicht doppelt auf der Startseite.
  *  Eine Quelle, zwei Orte der Ausgabe. */
 const stimmen = kurse.find((k) => k.slug === "masterclass")?.stimmen ?? [];
+
+/** Acht Gesichter auf der Startseite, nicht alle fuenfzehn: die Uebersicht
+ *  soll ein Vorgeschmack sein, keine zweite Referentinnenseite. Die
+ *  Reihenfolge kommt aus content/referentinnen.ts - Gruenderinnen zuerst. */
+const gesichter = referentinnen.slice(0, 8);
 
 export default function Startseite() {
   return (
@@ -43,6 +50,30 @@ export default function Startseite() {
           ))}
         </div>
       </Container>
+
+      <section className="border-y border-line bg-surface-alt py-16">
+        <Container>
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="text-2xl font-semibold tracking-tight">Von wem du lernst</h2>
+            <Link href="/referentinnen/" className="text-sm text-brand hover:text-brand-dark">
+              Alle {referentinnen.length} Referentinnen →
+            </Link>
+          </div>
+          <ul className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {gesichter.map((r) => (
+              <li key={r.slug}>
+                <Link href={`/referentinnen/${r.slug}/`} className="group block">
+                  <Portrait src={r.photo} name={r.name} sizes="(min-width: 640px) 25vw, 50vw" />
+                  <p className="mt-2 text-sm font-medium group-hover:text-brand-dark">
+                    {r.shortName ?? r.name}
+                  </p>
+                  <p className="mt-0.5 line-clamp-2 text-xs leading-snug text-ink-muted">{r.role}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       <Container className="pb-16">
         <h2 className="text-2xl font-semibold tracking-tight">Was Teilnehmerinnen sagen</h2>
